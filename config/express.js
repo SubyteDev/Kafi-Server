@@ -10,11 +10,7 @@ module.exports = function () {
     }));
 
     app.use(bodyParser.json());
-    app.use('/', function (req, res, next) {
-        console.log("req came");
-
-        next();
-    });
+    
     require('../app/routes/main.routes.js')(app);
 
     app.use(express.static('./public'));
