@@ -5,4 +5,6 @@ module.exports = function(app){
     app.route('/check').get(mainController.checkRequest);
     app.route('/completed').post(mainController.completeRequest);
     app.route('/received').post(mainController.requestReceived);
+    app.route('/list').get(mainController.listAllRequests);
+
 };
