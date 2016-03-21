@@ -31,9 +31,11 @@ exports.checkRequest = function (req, res, next) {
     Recipee.findOne({
         'completed': false
     }, function (err, recipees) {
+
         if (err) {
             console.log(err);
         } else {
+
             res.json(recipees);
         }
     }).
