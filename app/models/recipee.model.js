@@ -6,7 +6,11 @@ var RecipeeSchema = new Schema({
     created_at: Date,
     completed: Boolean,
     sent: Boolean,
-    content: String
+    content: {
+        coffee: Number,
+        cream: Number,
+        sugar: Number
+    }
 });
 
 

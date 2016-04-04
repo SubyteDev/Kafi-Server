@@ -6,7 +6,11 @@ exports.requestCoffee = function (req, res, next) {
         created_at: new Date(),
         completed: false,
         sent: false,
-        content: req.body.content
+        content: {
+            coffee: req.body.content.coffee,
+            cream: req.body.content.cream,
+            sugar: req.body.content.sugar
+        }
     });
     
     //TODO: update newCoffee.username to new model's id
