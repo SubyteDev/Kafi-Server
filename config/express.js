@@ -11,11 +11,6 @@ module.exports = function () {
 
     app.use(bodyParser.json());
     
-    app.use('/kare', function (req, res, next){
-        console.log("log: " + req.body);
-        next();
-    });
-    
     require('../app/routes/main.routes.js')(app);
 
     app.use(express.static('./public'));
