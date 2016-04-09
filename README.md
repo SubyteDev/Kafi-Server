@@ -1,6 +1,6 @@
 # Kafi-Server
 # Mobile API
-GET `http://localhost:5555/check` returns
+GET `http://localhost:5555/kafi/check` returns
 
 ```
 {
@@ -14,7 +14,27 @@ GET `http://localhost:5555/check` returns
 }
 ```
 
-POST `http://localhost:5555/request` you send:
+GET `http://localhost:5555/kafi/list` returns all recipees in database.
+
+POST `http://localhost:5555/kafi/received` you send:
+
+```
+{
+  "_id": "29416sdasd"
+}
+```
+Marks coffee request by that `_id` as received by machine.
+
+POST `http://localhost:5555/kafi/received` you send:
+
+```
+{
+  "_id": "29416sdasd"
+}
+```
+Marks coffee request by that `_id` as completed by machine.
+
+POST `http://localhost:5555/kafi/request` you send:
 
 ```
 {
@@ -26,3 +46,5 @@ POST `http://localhost:5555/request` you send:
 }
 ```
 it returns the recipee that is created by that request.
+
+
