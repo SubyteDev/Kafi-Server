@@ -16,6 +16,7 @@ exports.requestCoffee = function (req, res, next) {
     //TODO: update newCoffee.username to new model's id
     newCoffee.save(function (err) {
         if (err) {
+            res.send(err);
             console.log(err);
         } else {
             Recipee.find({
@@ -37,6 +38,7 @@ exports.checkRequest = function (req, res, next) {
     }, function (err, recipees) {
 
         if (err) {
+            res.send(err);
             console.log(err);
         } else {
 
@@ -49,6 +51,7 @@ exports.checkRequest = function (req, res, next) {
 exports.completeRequest = function (req, res, next){
     Recipee.findOneAndUpdate({"_id": req.body.id}, { $set: { completed: true }}, {new:true}, function(err, recipee) {
 		if (err) {
+            res.send(err);
 			return next(err);
 		}
 		else {
@@ -60,6 +63,7 @@ exports.completeRequest = function (req, res, next){
 exports.requestReceived = function (req, res, next){
     Recipee.findOneAndUpdate({"_id": req.body.id}, { $set: { sent: true }}, {new:true}, function(err, recipee) {
 		if (err) {
+            res.send(err);
 			return next(err);
 		}
 		else {
@@ -72,6 +76,7 @@ exports.requestReceived = function (req, res, next){
 exports.listAllRequests = function (req, res, next){
     Recipee.find({}, function (err, recipees) {
         if (err) {
+            res.send(err);
             console.log(err);
         } else {
             res.json(recipees);
