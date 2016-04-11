@@ -49,7 +49,7 @@ exports.checkRequest = function (req, res, next) {
 };
 
 exports.completeRequest = function (req, res, next){
-    Recipee.findOneAndUpdate({"_id": req.body.id}, { $set: { completed: true }}, {new:true}, function(err, recipee) {
+    Recipee.findOneAndUpdate({"_id": req.body._id}, { $set: { completed: true }}, {new:true}, function(err, recipee) {
 		if (err) {
             res.send(err);
 			return next(err);
@@ -61,7 +61,7 @@ exports.completeRequest = function (req, res, next){
 };
 
 exports.requestReceived = function (req, res, next){
-    Recipee.findOneAndUpdate({"_id": req.body.id}, { $set: { sent: true }}, {new:true}, function(err, recipee) {
+    Recipee.findOneAndUpdate({"_id": req.body._id}, { $set: { sent: true }}, {new:true}, function(err, recipee) {
 		if (err) {
             res.send(err);
 			return next(err);
