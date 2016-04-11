@@ -7,5 +7,6 @@ module.exports = function(app){
     app.route('/kafi/completed').post(mainController.completeRequest);
     app.route('/kafi/received').post(mainController.requestReceived);
     app.route('/kafi/list').get(mainController.listAllRequests);
+    //app.route('/kafi/clearDb').get(mainController.clearDb);
 
 };
