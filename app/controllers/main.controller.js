@@ -35,14 +35,16 @@ exports.requestCoffee = function (req, res, next) {
 exports.checkRequest = function (req, res, next) {
     Recipee.findOne({
         'completed': false
-    }, function (err, recipees) {
+    }, function (err, recipee) {
 
         if (err) {
             res.send(err);
             console.log(err);
         } else {
-
-            res.json(recipees);
+            if (recipee == null){
+                res.send("{NO RECIPEE}");
+            }
+            res.json(recipee);
         }
     }).
     sort('created_at');
@@ -55,6 +57,9 @@ exports.completeRequest = function (req, res, next){
 			return next(err);
 		}
 		else {
+            if (recipee == null){
+                res.send("{NOT FOUND}");
+            }
 			res.json(recipee);
 		}
 	});
@@ -67,7 +72,9 @@ exports.requestReceived = function (req, res, next){
 			return next(err);
 		}
 		else {
-            
+            if (recipee == null){
+                res.send("{NOT FOUND}");
+            }
 			res.json(recipee);
 		}
 	});
