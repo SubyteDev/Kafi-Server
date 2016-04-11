@@ -44,7 +44,10 @@ exports.checkRequest = function (req, res, next) {
             if (recipee == null){
                 res.send("{NO RECIPEE}");
             }
-            res.json(recipee);
+            else {
+                res.json(recipee);
+            }
+            
         }
     }).
     sort('created_at');
@@ -60,7 +63,9 @@ exports.completeRequest = function (req, res, next){
             if (recipee == null){
                 res.send("{NOT FOUND}");
             }
-			res.json(recipee);
+            else {
+                res.json(recipee);
+            }
 		}
 	});
 };
@@ -75,7 +80,10 @@ exports.requestReceived = function (req, res, next){
             if (recipee == null){
                 res.send("{NOT FOUND}");
             }
-			res.json(recipee);
+            else {
+                res.json(recipee);
+            }
+			
 		}
 	});
 };
