@@ -99,3 +99,39 @@ exports.listAllRequests = function (req, res, next){
     }).
     sort('created_at');
 }
+
+/*exports.clearDb = function (req, res, next) {
+    Recipee.find({}, function (err, recipees) {
+        if (err) {
+            res.send(err);
+            console.log(err);
+        } else {
+            console.log("AAAAwill clear: " + recipees[0]);
+            for (var i = 0; i < recipees.length; i++) {
+                
+                
+                console.log("will clear: " + recipees[i]._id);
+                Recipee.findOneAndUpdate({
+                    "_id": recipees[i]._id
+                }, {
+                    $set: {
+                        completed: true
+                    }
+                }, {
+                    new: true
+                }, function (err, recipee) {
+                    if (err) {
+                        res.send(err);
+                        return next(err);
+                    } else {
+                        //console.log("cleared: " + recipees[i]._id);
+                    }
+                });
+                
+                
+                
+            }
+        }
+    }).
+    sort('created_at');
+}*/
