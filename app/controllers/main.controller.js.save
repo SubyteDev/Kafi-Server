@@ -1,7 +1,7 @@
 var Recipee = require('mongoose').model('Recipee');
 
 exports.requestCoffee = function (req, res, next) {
-    var newCoffee = new Recipee({
+	console.log("json is: " + req.body.content   var newCoffee = new Recipee({
         username: req.body.username,
         created_at: new Date(),
         completed: false,
